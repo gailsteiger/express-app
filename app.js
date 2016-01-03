@@ -28,9 +28,6 @@ app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// let babelify = require('babelify')
-// let browserify = require('browserify-middleware')
-
 // babelify compile 
 app.get('/js/index.js', require('browserify-middleware')(path.join(__dirname, 'public/javascripts/index.js'), {
   cache: app.get('env') === 'development' ? 'dynamic' : true,

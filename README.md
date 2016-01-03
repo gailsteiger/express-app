@@ -23,13 +23,14 @@ npm install --save helmet compression
 - compression - gzip middleware
 
 #### Client js build
-
+ES2015 + react compiled dynamically.
 ```
-npm install --save babelify browserify-middleware
+npm install --save browserify-middleware babelify babel-preset-es2015 babel-preset-react
 ```
 #### nodemon
+For server reloading on source code changes.
 ```
-npm install --save nodemon
+npm install --save-dev nodemon
 ```
 Add script:
 ```
