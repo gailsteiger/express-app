@@ -42,3 +42,9 @@ Persistent JS based db
 ```
 npm install nedb --save
 ```
+
+### User autorization
+```
+npm install --save passport passport-github2 method-override express-partials express-session
+```
+Based on [link](https://github.com/cfsghost/passport-github/tree/master/examples/login)
