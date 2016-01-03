@@ -1,14 +1,19 @@
+'use strict'
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+const compression = require('compression')
+const helmet = require('helmet')
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+app.use(compression())
+app.use(helmet());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,6 +27,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// let babelify = require('babelify')
+// let browserify = require('browserify-middleware')
+
+// babelify compile 
+app.get('/js/index.js', require('browserify-middleware')(path.join(__dirname, 'public/javascripts/index.js'), {
+  cache: app.get('env') === 'development' ? 'dynamic' : true,
+  precompile: app.get('env') === 'development' ? false : true,
+  transform: [ ['babelify', {presets: ['es2015', 'react']}]]
+}))
 
 app.use('/', routes);
 app.use('/users', users);
