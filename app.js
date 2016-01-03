@@ -37,6 +37,7 @@ app.get('/js/index.js', require('browserify-middleware')(path.join(__dirname, 'p
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/posts', require('./routes/posts'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

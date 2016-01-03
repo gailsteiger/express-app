@@ -36,3 +36,9 @@ Add script:
 ```
 "dev": "nodemon --watch ./ --ignore ./public ./bin/www"
 ```
+
+### Routing
+Persistent JS based db 
+```
+npm install nedb --save
+```

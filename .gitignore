@@ -34,3 +34,6 @@ public/stylesheets/style.css
 
 # vscode typing
 typings
+
+# nedb database
+temp
